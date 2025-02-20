@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>체크박스 상태 출력</title>
+</head>
+<body>
+<div>
+    <h2>1단계</h2>
+    <label>
+        <input type="checkbox" id="myCheckbox"> 체크박스
+    </label>
+
+    <script>
+        // 체크박스를 선택하고, 상태가 변경될 때마다 실행되는 이벤트 리스너 추가
+        document.getElementById('myCheckbox').addEventListener('change', function() {
+            console.log( this.checked ? '됨' : '안됨' );
+        });
+    </script>
+</div>
+<div>
+    <h2>2단계</h2>
+    <div>
+        <label>
+            <input type="radio" name="gender" value="남성" id="male"> 남성
+        </label>
+        <label>
+            <input type="radio" name="gender" value="여성" id="female"> 여성
+        </label>
+    </div>
+    <script>
+        // 라디오 버튼의 name이 'gender'인 요소들을 가져와서, 값이 변경될 때마다 출력
+        const genderRadios = document.getElementsByName('gender');
+        
+        genderRadios.forEach((라디오, 순번) => {
+            라디오.addEventListener("change", function(){
+                if(this.checked){
+                      alert(this.value+" 이시군요! ")
+                }
+            })
+        });
+    </script>
+    <div>
+        <h2>문제 : 우리가 지금 훈련중인 언어는?</h2>
+        <div>
+            <label>
+                <input type="radio" name="study" value="리액트" > 리액트
+            </label>
+            <label>
+                <input type="radio" name="study" value="노드" > 노드
+            </label>
+            <label>
+                <input type="radio" name="study" value="바닐라" > 바닐라
+            </label>
+            <label>
+                <input type="radio" name="study" value="파이썬" > 파이썬
+            </label>
+        </div>
+        <script>
+            // 바닐라가 선택되었을때 정답!!! / 나머지는 다시 한번생각해보세요!!!
+            const 공부들 = document.getElementsByName('study');
+            
+            공부들.forEach((공부, 순번) => {
+                공부.addEventListener("change", function(){
+                    // if(this.checked  == "바닐라"){
+                    //       alert("정답")
+                    // }else{("다시 한번 생각해보시길!")
+                    // }
+                alert(this.value == "바닐라" ? "정답" : "다시 한번 생각해보세요!")
+                })
+            });
+        </script>
+
+</body>
+</html>
+
+</div>
+    
+
+</body>
+</html>
